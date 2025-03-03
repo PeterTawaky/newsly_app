@@ -43,7 +43,7 @@ class BreakingCategoryCard extends StatelessWidget {
             imageUrl:
                 breakingNewsModel.urlToImage ??
                 'https://static.vecteezy.com/system/resources/previews/009/381/293/original/prohibition-sign-clipart-design-illustration-free-png.png',
-            placeholder: (context, url) => CircularProgressIndicator(),
+            // placeholder: (context, url) => CircularProgressIndicator(),
             errorWidget: (context, url, error) => Icon(Icons.error),
             fit: BoxFit.cover,
           ),
