@@ -48,8 +48,6 @@ class _NewsTileListState extends State<NewsTileList> {
           }
         },
       ),
-
-     
     );
   }
 }
