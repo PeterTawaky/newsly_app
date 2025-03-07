@@ -16,13 +16,7 @@ class HomeScreen extends StatelessWidget {
       viewportFraction: 0.9,
       keepPage: true,
     ); //this setting will make sure that many pages can be visible at a time
-    List<String> images = [
-      'https://4kwallpapers.com/images/walls/thumbs_2t/21317.jpg',
-      'https://4kwallpapers.com/images/walls/thumbs_2t/21316.jpg',
-      'https://4kwallpapers.com/images/walls/thumbs_2t/21340.jpg',
-      'https://4kwallpapers.com/images/walls/thumbs_2t/21357.png',
-      'https://4kwallpapers.com/images/walls/thumbs_2t/21285.jpg',
-    ];
+    
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -30,7 +24,6 @@ class HomeScreen extends StatelessWidget {
           SizedBox(height: 4.h),
           BreakingCategoryCardList(
             controller: controller,
-            images: images,
             height: height,
             width: width,
           ),
@@ -39,7 +32,7 @@ class HomeScreen extends StatelessWidget {
           TitleRowHead(mainTitle: 'Recommendation'),
           SizedBox(height: 8.h),
 
-          NewsTileList(images: images),
+          NewsTileList(),
         ],
       ),
     );

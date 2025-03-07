@@ -9,13 +9,11 @@ class BreakingCategoryCardList extends StatefulWidget {
   const BreakingCategoryCardList({
     super.key,
     required this.controller,
-    required this.images,
     required this.height,
     required this.width,
   });
 
   final PageController controller;
-  final List<String> images;
   final double height;
   final double width;
 

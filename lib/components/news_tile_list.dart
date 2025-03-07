@@ -8,9 +8,7 @@ import 'package:news_app/service/news_service.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class NewsTileList extends StatefulWidget {
-  const NewsTileList({super.key, required this.images});
-
-  final List<String> images;
+  const NewsTileList({super.key});
 
   @override
   State<NewsTileList> createState() => _NewsTileListState();

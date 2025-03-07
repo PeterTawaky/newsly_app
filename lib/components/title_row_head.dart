@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:news_app/constants/app_colors.dart';
+import 'package:news_app/routes/app_routes.dart';
 
 class TitleRowHead extends StatelessWidget {
   final String mainTitle;
@@ -21,11 +23,12 @@ class TitleRowHead extends StatelessWidget {
                 context,
               ).textTheme.bodyMedium!.copyWith(color: AppColors.blue),
             ),
-            onPressed: () {},
+            onPressed: () {
+              context.pushNamed(AppRoutes.viewAllScreen);
+            },
           ),
         ],
       ),
     );
   }
 }
-

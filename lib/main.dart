@@ -35,7 +35,7 @@ class Newsaily extends StatelessWidget {
             textTheme: TextTheme(
               titleLarge: GoogleFonts.notoSansJavanese(
                 color: AppColors.primaryBlack,
-                fontSize: 24.sp,
+                fontSize: 38.sp,
                 fontWeight: FontWeight.bold,
               ),
               titleMedium: GoogleFonts.notoSansJavanese(

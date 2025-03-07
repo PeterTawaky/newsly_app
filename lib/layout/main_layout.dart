@@ -1,6 +1,7 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:news_app/components/special_circle_icon.dart';
 import 'package:news_app/constants/app_colors.dart';
 import 'package:news_app/screens/bookmark_screen.dart';
 import 'package:news_app/screens/explore_screen.dart';
@@ -102,45 +103,21 @@ class _MainLayoutState extends State<MainLayout> {
         ),
       ),
       appBar: AppBar(
-        leading: Container(
-          margin: const EdgeInsets.all(8.0),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: AppColors.lightWhite,
-          ),
-          child: IconButton(
-            icon: const Icon(Icons.menu, color: Colors.black),
-            onPressed: () {
-              scaffoldKey.currentState
-                  ?.openDrawer(); // استخدام المفتاح لفتح الدروير
-            },
-          ),
+        leading: SpecialCircleIcon(
+          onTap: () => scaffoldKey.currentState!.openDrawer(),
+          icon: Icons.menu,
+          iconColor: AppColors.primaryBlack,
         ),
         actions: [
-          Container(
-            margin: const EdgeInsets.all(8.0),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: AppColors.lightWhite,
-            ),
-            child: IconButton(
-              icon: const Icon(Icons.search, color: Colors.black),
-              onPressed: () {},
-            ),
+          SpecialCircleIcon(
+            icon: Icons.search,
+            iconColor: AppColors.primaryBlack,
+            onTap: () {},
           ),
-          Container(
-            margin: const EdgeInsets.all(8.0),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: AppColors.lightWhite,
-            ),
-            child: IconButton(
-              icon: const Icon(
-                Icons.notification_add_rounded,
-                color: Colors.black,
-              ),
-              onPressed: () {},
-            ),
+          SpecialCircleIcon(
+            icon: Icons.notification_add_rounded,
+            iconColor: AppColors.primaryBlack,
+            onTap: () {},
           ),
         ],
       ),
