@@ -21,7 +21,7 @@ class NewsRepository {
       );
       List<dynamic> articles = jsonResponse['articles'];
      return articles.map((article) => NewsModel.fromJson(article)).toList();
-    // } on ServerException catch (error) {
+    // } on Ser verException catch (error) {
 
     // }
   }
