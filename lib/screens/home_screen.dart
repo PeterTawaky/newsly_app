@@ -4,6 +4,8 @@ import 'package:news_app/components/breaking_category_card_list.dart';
 import 'package:news_app/components/news_tile_list.dart';
 import 'package:news_app/components/page_slider_indicator.dart';
 import 'package:news_app/components/title_row_head.dart';
+import 'package:news_app/core/api/endpoints.dart';
+import 'package:news_app/functions/bottom_ellipse.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -16,7 +18,7 @@ class HomeScreen extends StatelessWidget {
       viewportFraction: 0.9,
       keepPage: true,
     ); //this setting will make sure that many pages can be visible at a time
-    
+
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -32,7 +34,7 @@ class HomeScreen extends StatelessWidget {
           TitleRowHead(mainTitle: 'Recommendation'),
           SizedBox(height: 8.h),
 
-          NewsTileList(),
+          NewsTileList(endPoint: Endpoints.topHeadlines, q: 'recommend'),
         ],
       ),
     );

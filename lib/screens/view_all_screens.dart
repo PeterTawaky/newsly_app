@@ -6,12 +6,15 @@ import 'package:news_app/components/custom_search_bar.dart';
 import 'package:news_app/components/news_tile_list.dart';
 import 'package:news_app/components/special_circle_icon.dart';
 import 'package:news_app/constants/app_colors.dart';
+import 'package:news_app/core/api/endpoints.dart';
+import 'package:news_app/functions/bottom_ellipse.dart';
 
 class ViewAllScreens extends StatelessWidget {
   const ViewAllScreens({super.key});
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     List<String> categories = [
       'All',
       'Business',
@@ -24,6 +27,8 @@ class ViewAllScreens extends StatelessWidget {
     ];
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         automaticallyImplyLeading: false, //to hide the default back button
         leading: SpecialCircleIcon(
           icon: Icons.arrow_back_ios,
@@ -42,7 +47,9 @@ class ViewAllScreens extends StatelessWidget {
                 'News from all around the world',
                 style: Theme.of(context).textTheme.bodySmall,
               ),
+              SizedBox(height: 20.h),
               CustomSearchBar(),
+              SizedBox(height: 20.h),
               SizedBox(
                 height: 30.h,
                 child: ListView.separated(
@@ -56,6 +63,14 @@ class ViewAllScreens extends StatelessWidget {
                         categoryTitle: categories[index],
                       ),
                   itemCount: categories.length,
+                ),
+              ),
+              SizedBox(height: 20.h),
+
+              Center(
+                child: NewsTileList(
+                  endPoint: Endpoints.everything,
+                  q: 'sports',
                 ),
               ),
             ],

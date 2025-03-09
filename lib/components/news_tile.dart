@@ -2,10 +2,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/constants/app_colors.dart';
+import 'package:news_app/functions/remove_text_response.dart';
 import 'package:news_app/models/breaking_news_model.dart';
 
 class NewsTile extends StatelessWidget {
-  final BreakingNewsModel breakingNewsModel;
+  final NewsModel breakingNewsModel;
   const NewsTile({super.key, required this.breakingNewsModel});
 
   @override
@@ -48,10 +49,10 @@ class NewsTile extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  spacing: 2.w,
                   children: [
                     Text(
-                      breakingNewsModel.author ?? 'Unknown',
+                      getFirstTwoWords(breakingNewsModel.author) ?? 'Unknown',
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                     CircleAvatar(radius: 4.r, backgroundColor: AppColors.grey),

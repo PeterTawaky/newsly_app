@@ -1,8 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:news_app/components/breaking_category_card.dart';
+import 'package:news_app/core/api/endpoints.dart';
+import 'package:news_app/core/errors/exceptions.dart';
 import 'package:news_app/models/breaking_news_model.dart';
-import 'package:news_app/service/news_service.dart';
+import 'package:news_app/repositories/news_repository.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class BreakingCategoryCardList extends StatefulWidget {
@@ -23,7 +27,7 @@ class BreakingCategoryCardList extends StatefulWidget {
 }
 
 class _BreakingCategoryCardListState extends State<BreakingCategoryCardList> {
-  List<BreakingNewsModel> breakingNews = [];
+  dynamic breakingNews = [];
   bool dataHere = false;
   @override
   void initState() {
@@ -32,10 +36,21 @@ class _BreakingCategoryCardListState extends State<BreakingCategoryCardList> {
   }
 
   callGetBreakingNews() async {
-    breakingNews = await NewsService.getBreakingNews(q: 'trend');
-    setState(() {
-      dataHere = true;
-    });
+    try {
+      breakingNews = await NewsRepository().getNews(
+        Endpoints.topHeadlines,
+        queryParameters: {
+          ApiKey.apiKey: 'fde5a16a615f45978a05b8593dba9ed6',
+          ApiKey.q: 'trend',
+        },
+      );
+      setState(() {
+        dataHere = true;
+      });
+    } on ServerException catch (e) {
+      log(e.errorModel.message);
+    }
+    // await NewsService.getBreakingNews(q: 'trend');
   }
 
   @override

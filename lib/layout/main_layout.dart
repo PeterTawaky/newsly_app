@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/components/special_circle_icon.dart';
 import 'package:news_app/constants/app_colors.dart';
+import 'package:news_app/functions/bottom_ellipse.dart';
 import 'package:news_app/screens/bookmark_screen.dart';
 import 'package:news_app/screens/explore_screen.dart';
 import 'package:news_app/screens/home_screen.dart';
@@ -63,6 +64,7 @@ class _MainLayoutState extends State<MainLayout> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
     List<Widget> screens = [
@@ -75,13 +77,17 @@ class _MainLayoutState extends State<MainLayout> {
     return Scaffold(
       key: scaffoldKey, //create this key to open the drawer through it
       bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+        child: Column(
           children: [
-            _buildNavItem(Icons.home, "Home", 0),
-            _buildNavItem(Icons.explore, "Explore", 1),
-            _buildNavItem(Icons.bookmark_border_outlined, "Bookmark", 2),
-            _buildNavItem(Icons.person_2_outlined, "Profile", 3),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                _buildNavItem(Icons.home, "Home", 0),
+                _buildNavItem(Icons.explore, "Explore", 1),
+                _buildNavItem(Icons.bookmark_border_outlined, "Bookmark", 2),
+                _buildNavItem(Icons.person_2_outlined, "Profile", 3),
+              ],
+            ),
           ],
         ),
       ),

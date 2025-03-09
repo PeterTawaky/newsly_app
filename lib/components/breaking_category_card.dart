@@ -18,7 +18,7 @@ class BreakingCategoryCard extends StatelessWidget {
     required this.index,
   });
   final int index;
-  final BreakingNewsModel breakingNewsModel;
+  final NewsModel breakingNewsModel;
   final double height;
   final double width;
 
