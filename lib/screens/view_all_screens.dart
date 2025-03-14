@@ -7,7 +7,6 @@ import 'package:news_app/components/news_tile_list.dart';
 import 'package:news_app/components/special_circle_icon.dart';
 import 'package:news_app/constants/app_colors.dart';
 import 'package:news_app/core/api/endpoints.dart';
-import 'package:news_app/functions/bottom_ellipse.dart';
 
 class ViewAllScreens extends StatelessWidget {
   const ViewAllScreens({super.key});

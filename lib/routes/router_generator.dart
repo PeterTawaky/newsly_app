@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/routes/app_routes.dart';
 import 'package:news_app/layout/main_layout.dart';

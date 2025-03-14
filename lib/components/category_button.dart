@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_app/constants/app_colors.dart';
 
 class CategoryButton extends StatelessWidget {
   final Color buttonColor;

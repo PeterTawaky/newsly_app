@@ -1,6 +1,4 @@
-import 'package:dartz/dartz.dart';
 import 'package:news_app/core/api/dio_consumer.dart';
-import 'package:news_app/core/errors/exceptions.dart';
 import 'package:news_app/models/breaking_news_model.dart';
 
 class NewsRepository {

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/components/special_circle_icon.dart';
 import 'package:news_app/constants/app_colors.dart';
-import 'package:news_app/functions/bottom_ellipse.dart';
 import 'package:news_app/screens/bookmark_screen.dart';
 import 'package:news_app/screens/explore_screen.dart';
 import 'package:news_app/screens/home_screen.dart';

@@ -5,7 +5,6 @@ import 'package:flutter/widgets.dart';
 import 'package:news_app/components/breaking_category_card.dart';
 import 'package:news_app/core/api/endpoints.dart';
 import 'package:news_app/core/errors/exceptions.dart';
-import 'package:news_app/models/breaking_news_model.dart';
 import 'package:news_app/repositories/news_repository.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 

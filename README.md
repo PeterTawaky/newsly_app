@@ -16,3 +16,4 @@ application for Displaying news
 - adding another theme
 - try to use retrofit pakcage
 - editing the UI of Page viewer to small the side cards
+- Dependency injection

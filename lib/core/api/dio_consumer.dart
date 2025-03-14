@@ -3,7 +3,6 @@ import 'package:news_app/core/api/api_consumer.dart';
 import 'package:news_app/core/api/api_interceptor.dart';
 import 'package:news_app/core/api/endpoints.dart';
 import 'package:news_app/core/errors/exceptions.dart';
-import 'package:news_app/models/breaking_news_model.dart';
 
 class DioConsumer extends ApiConsumer {
   final Dio dio = Dio();
@@ -73,7 +72,7 @@ class DioConsumer extends ApiConsumer {
     bool isFormData = false,
   }) async {
     try {
-      final Response resopnse = await dio.delete(
+      final Response resopnse = await dio.post(
         path,
         data: isFormData ? FormData.fromMap(data) : data,
         queryParameters: queryParameters,
@@ -93,7 +92,7 @@ class DioConsumer extends ApiConsumer {
     bool isFormData = false,
   }) async {
     try {
-      final Response resopnse = await dio.delete(
+      final Response resopnse = await dio.put(
         path,
         data: isFormData ? FormData.fromMap(data) : data,
         queryParameters: queryParameters,
@@ -113,7 +112,7 @@ class DioConsumer extends ApiConsumer {
     bool isFormData = false,
   }) async {
     try {
-      final Response resopnse = await dio.delete(
+      final Response resopnse = await dio.patch(
         path,
         data: isFormData ? FormData.fromMap(data) : data,
         queryParameters: queryParameters,

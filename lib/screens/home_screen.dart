@@ -5,7 +5,6 @@ import 'package:news_app/components/news_tile_list.dart';
 import 'package:news_app/components/page_slider_indicator.dart';
 import 'package:news_app/components/title_row_head.dart';
 import 'package:news_app/core/api/endpoints.dart';
-import 'package:news_app/functions/bottom_ellipse.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
