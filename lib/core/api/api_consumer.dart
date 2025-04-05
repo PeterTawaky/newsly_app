@@ -1,4 +1,9 @@
+import 'dart:developer';
+
 abstract class ApiConsumer {
+  ApiConsumer() {
+    log('ApiConsumer initialized');
+  }
   Future<dynamic> get(
     String path, {
     Object? data,

@@ -4,28 +4,28 @@ import 'package:dio/dio.dart';
 import 'package:news_app/core/api/api_consumer.dart';
 import 'package:news_app/core/api/api_interceptor.dart';
 import 'package:news_app/core/api/endpoints.dart';
+import 'package:news_app/core/dependencies/di_container.dart';
 import 'package:news_app/core/errors/exceptions.dart';
 
 class DioConsumer extends ApiConsumer {
-  final Dio dio =
-      Dio(); //this instance need tobe injected we only need one instance for each request
+  final Dio dio = serviceLocator<Dio>(); //dependency injection
 
   DioConsumer() {
     log('DioConsumer initialized');
     //control the dio
     dio.options.baseUrl = Endpoints.baseUrl;
     dio.interceptors.add(ApiInterceptor()); //هيتنفذ مع كل request
-    // dio.interceptors.add(
-    //   LogInterceptor(
-    //     //print all my request details
-    //     request: true,
-    //     requestBody: true,
-    //     responseBody: true,
-    //     error: true,
-    //     requestHeader: true,
-    //     responseHeader: true,
-    //   ),
-    // );
+    dio.interceptors.add(
+      LogInterceptor(
+        //print all my request details
+        request: true,
+        requestBody: true,
+        responseBody: true,
+        error: true,
+        requestHeader: true,
+        // responseHeader: true,
+      ),
+    );
   }
 
   @override
