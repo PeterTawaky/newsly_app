@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:news_app/constants/app_colors.dart';
+import 'package:news_app/core/themes/app_colors.dart';
 
 class CustomSearchBar extends StatefulWidget {
   const CustomSearchBar({super.key});

@@ -1,5 +1,5 @@
 import 'package:news_app/core/api/dio_consumer.dart';
-import 'package:news_app/models/breaking_news_model.dart';
+import 'package:news_app/features/home/data/models/breaking_news_model.dart';
 
 class NewsRepository {
   DioConsumer dioConsumer = DioConsumer();

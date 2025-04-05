@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 
-class ApiInterceptor extends Interceptor{
+class ApiInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     //كود هيتنفذ مع كل request
-    options.headers.addAll({'Authorization': 'Barer '});
+    options.headers.addAll({'Authorization': 'Bearer '});
     super.onRequest(options, handler);
   }
 }

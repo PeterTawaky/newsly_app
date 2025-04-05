@@ -2,9 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:news_app/constants/app_colors.dart';
-import 'package:news_app/models/breaking_news_model.dart';
-import 'package:news_app/routes/app_routes.dart';
+import 'package:news_app/core/themes/app_colors.dart';
+import 'package:news_app/features/home/data/models/breaking_news_model.dart';
+import 'package:news_app/core/routes/app_routes.dart';
 
 class BreakingCategoryCard extends StatelessWidget {
   const BreakingCategoryCard({
@@ -18,15 +18,6 @@ class BreakingCategoryCard extends StatelessWidget {
   final NewsModel breakingNewsModel;
   final double height;
   final double width;
-
-  String getFirstTwoWords(String text) {
-    List<String> words = text.split(' '); // Split by space
-    if (words.length >= 2) {
-      return '${words[0]} ${words[1]}'; // Take first two words
-    } else {
-      return text; // If less than two words, return the original string
-    }
-  }
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:news_app/constants/app_colors.dart';
+import 'package:news_app/core/themes/app_colors.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class PageSliderIndicator extends StatelessWidget {

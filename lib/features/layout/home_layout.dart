@@ -1,35 +1,32 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_app/components/special_circle_icon.dart';
-import 'package:news_app/constants/app_colors.dart';
-import 'package:news_app/screens/bookmark_screen.dart';
-import 'package:news_app/screens/explore_screen.dart';
-import 'package:news_app/screens/home_screen.dart';
-import 'package:news_app/screens/profile_screen.dart';
+import 'package:news_app/features/home/logic/provider/bottom_nav_provider.dart';
+import 'package:news_app/features/home/presentation/widgets/components/special_circle_icon.dart';
+import 'package:news_app/core/themes/app_colors.dart';
+import 'package:news_app/features/home/presentation/screens/bookmark_screen.dart';
+import 'package:news_app/features/home/presentation/screens/explore_screen.dart';
+import 'package:news_app/features/home/presentation/screens/home_screen.dart';
+import 'package:news_app/features/home/presentation/screens/profile_screen.dart';
+import 'package:provider/provider.dart';
 
-class MainLayout extends StatefulWidget {
-  const MainLayout({super.key});
+class HomeLayout extends StatefulWidget {
+  const HomeLayout({super.key});
 
   @override
-  State<MainLayout> createState() => _MainLayoutState();
+  State<HomeLayout> createState() => _HomeLayoutState();
 }
 
 //function to change the index
-class _MainLayoutState extends State<MainLayout> {
-  int _selectedIndex = 0;
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+class _HomeLayoutState extends State<HomeLayout> {
+  // int _selectedIndex = 0;
 
   //function to build the navigation item
   Widget _buildNavItem(IconData icon, String label, int index) {
     return GestureDetector(
-      onTap: () => _onItemTapped(index),
+      onTap: () => context.read<BottomNavProvider>().navigate(index),
       child: ConditionalBuilder(
-        condition: _selectedIndex == index,
+        condition: context.watch<BottomNavProvider>().currentIndex == index,
         builder:
             (context) => Container(
               decoration: BoxDecoration(
@@ -55,7 +52,10 @@ class _MainLayoutState extends State<MainLayout> {
             (context) => Icon(
               icon,
               size: 30.sp,
-              color: _selectedIndex == index ? Colors.blue : Colors.grey,
+              color:
+                  context.watch<BottomNavProvider>().currentIndex == index
+                      ? Colors.blue
+                      : Colors.grey,
             ),
       ),
     );
@@ -126,7 +126,9 @@ class _MainLayoutState extends State<MainLayout> {
           ),
         ],
       ),
-      body: screens.elementAt(_selectedIndex),
+      body: Consumer(builder: (context, watch, child) {
+        return screens.elementAt(context.watch<BottomNavProvider>().currentIndex);
+      }),
     );
   }
 }

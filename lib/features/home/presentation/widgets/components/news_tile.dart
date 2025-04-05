@@ -1,9 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_app/constants/app_colors.dart';
+import 'package:news_app/core/themes/app_colors.dart';
 import 'package:news_app/functions/remove_text_response.dart';
-import 'package:news_app/models/breaking_news_model.dart';
+import 'package:news_app/features/home/data/models/breaking_news_model.dart';
+import 'package:shimmer/shimmer.dart';
 
 class NewsTile extends StatelessWidget {
   final NewsModel breakingNewsModel;
@@ -22,6 +23,21 @@ class NewsTile extends StatelessWidget {
             width: 110.h,
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
             child: CachedNetworkImage(
+              placeholder:
+                  (context, url) => SizedBox(
+                    child: Shimmer.fromColors(
+                      baseColor: AppColors.shimmerGrey,
+                      highlightColor: AppColors.primaryWhite,
+                      child: Container(
+                        clipBehavior: Clip.antiAlias,
+                        margin: EdgeInsets.symmetric(horizontal: 4.w),
+                        decoration: BoxDecoration(
+                          color: AppColors.shimmerGrey,
+                          borderRadius: BorderRadius.circular(22),
+                        ),
+                      ),
+                    ),
+                  ),
               // height: height * 0.28,
               // width: width,
               imageUrl:
