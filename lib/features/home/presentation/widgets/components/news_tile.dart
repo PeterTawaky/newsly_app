@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_app/core/themes/app_colors.dart';
-import 'package:news_app/functions/remove_text_response.dart';
-import 'package:news_app/features/home/data/models/breaking_news_model.dart';
+import '../../../../../core/utils/theme/app_colors.dart';
+import '../../../../../core/utils/functions/remove_text_response.dart';
+import '../../../data/models/breaking_news_model.dart';
 import 'package:shimmer/shimmer.dart';
 
 class NewsTile extends StatelessWidget {

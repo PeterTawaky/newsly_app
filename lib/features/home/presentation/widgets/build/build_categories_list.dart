@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_app/core/api/endpoints.dart';
-import 'package:news_app/core/themes/app_colors.dart';
-import 'package:news_app/features/home/logic/cubit/news_cubit.dart';
-import 'package:news_app/features/home/logic/provider/category_provider.dart';
-import 'package:news_app/features/home/presentation/widgets/components/category_button.dart';
+import '../../../../../core/api/endpoints.dart';
+import '../../../../../core/utils/theme/app_colors.dart';
+import '../../../logic/cubit/news_cubit.dart';
+import '../../../logic/provider/category_provider.dart';
+import '../components/category_button.dart';
 
 class BuildCategoriesList extends StatelessWidget {
   final List<String> categories;

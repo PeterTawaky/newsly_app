@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:news_app/features/home/logic/provider/category_provider.dart';
-import 'package:news_app/features/home/presentation/widgets/build/build_categories_list.dart';
-import 'package:news_app/features/home/presentation/widgets/build/news_tile_list.dart';
-import 'package:news_app/features/home/presentation/widgets/components/custom_search_bar.dart';
-import 'package:news_app/features/home/presentation/widgets/components/special_circle_icon.dart';
-import 'package:news_app/core/themes/app_colors.dart';
+import '../../logic/provider/category_provider.dart';
+import '../widgets/build/build_categories_list.dart';
+import '../widgets/build/news_tile_list.dart';
+import '../widgets/components/custom_search_bar.dart';
+import '../widgets/components/special_circle_icon.dart';
+import '../../../../core/utils/theme/app_colors.dart';
 import 'package:provider/provider.dart';
 
 class ViewAllScreens extends StatelessWidget {

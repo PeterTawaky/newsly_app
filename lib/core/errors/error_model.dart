@@ -1,4 +1,4 @@
-import 'package:news_app/core/api/endpoints.dart';
+import '../api/endpoints.dart';
 
 class ErrorModel {
   //changes according to the api response

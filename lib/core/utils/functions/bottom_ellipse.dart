@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/themes/app_colors.dart';
+import '../theme/app_colors.dart';
 
 Widget bottomEllipse({required num width}) {
   return Container(

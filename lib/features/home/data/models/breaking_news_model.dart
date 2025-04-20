@@ -1,4 +1,4 @@
-import 'package:news_app/core/api/endpoints.dart';
+import '../../../../core/api/endpoints.dart';
 
 class NewsModel {
   // final String src;

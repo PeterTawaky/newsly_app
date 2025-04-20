@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/themes/app_colors.dart';
+import '../../../../core/utils/theme/app_colors.dart';
 
 class RouteErrorScreen extends StatelessWidget {
   const RouteErrorScreen({super.key});

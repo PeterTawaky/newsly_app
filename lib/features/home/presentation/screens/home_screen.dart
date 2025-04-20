@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_app/features/home/presentation/widgets/build/breaking_category_card_list.dart';
-import 'package:news_app/features/home/presentation/widgets/build/news_tile_list.dart';
-import 'package:news_app/features/home/presentation/widgets/components/page_slider_indicator.dart';
-import 'package:news_app/features/home/presentation/widgets/sections/title_row_head.dart';
-import 'package:news_app/core/api/endpoints.dart';
-import 'package:news_app/features/home/logic/cubit/news_cubit.dart';
+
+import '../../../../core/api/endpoints.dart';
+import '../../logic/cubit/news_cubit.dart';
+import '../widgets/build/breaking_category_card_list.dart';
+import '../widgets/build/news_tile_list.dart';
+import '../widgets/components/page_slider_indicator.dart';
+import '../widgets/sections/title_row_head.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -26,7 +27,10 @@ class HomeScreen extends StatelessWidget {
 
         SliverToBoxAdapter(child: SizedBox(height: 4.h)),
         BlocProvider<NewsCubit>(
-          create: (context) => NewsCubit()..getNews(endPoint: Endpoints.topHeadlines, q: 'trend'),
+          create:
+              (context) =>
+                  NewsCubit()
+                    ..getNews(endPoint: Endpoints.topHeadlines, q: 'trend'),
           child: SliverToBoxAdapter(
             child: BreakingCategoryCardList(
               controller: controller,
@@ -50,7 +54,7 @@ class HomeScreen extends StatelessWidget {
           create:
               (context) =>
                   NewsCubit()
-                    ..getNews(endPoint: Endpoints.topHeadlines, q: 'recommend'),
+                    ..getNews(endPoint: Endpoints.everything, q: 'recommend'),
           child: NewsTileList(),
         ),
       ],

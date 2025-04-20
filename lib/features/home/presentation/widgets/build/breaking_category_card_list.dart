@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_app/core/themes/app_colors.dart';
-import 'package:news_app/features/home/presentation/widgets/components/breaking_category_card.dart';
-import 'package:news_app/features/home/logic/cubit/news_cubit.dart';
-import 'package:news_app/features/home/presentation/widgets/components/shimmer_category_card.dart';
-import 'package:shimmer/shimmer.dart';
+import '../components/breaking_category_card.dart';
+import '../../../logic/cubit/news_cubit.dart';
+import '../components/shimmer_category_card.dart';
 
 class BreakingCategoryCardList extends StatelessWidget {
   const BreakingCategoryCardList({
@@ -22,6 +19,8 @@ class BreakingCategoryCardList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NewsCubit, NewsState>(
+      bloc: BlocProvider.of<NewsCubit>(context),
+      buildWhen: (previousState, currentState) => previousState != currentState,
       builder: (context, state) {
         if (state is NewsLoaded) {
           return SizedBox(
@@ -40,6 +39,8 @@ class BreakingCategoryCardList extends StatelessWidget {
               },
             ),
           );
+        } else if (state is NewsError) {
+          return Text(state.errorMessage);
         } else {
           return SizedBox(
             width: width,

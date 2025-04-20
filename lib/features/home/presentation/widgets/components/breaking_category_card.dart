@@ -2,9 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:news_app/core/themes/app_colors.dart';
-import 'package:news_app/features/home/data/models/breaking_news_model.dart';
-import 'package:news_app/core/routes/app_routes.dart';
+import '../../../../../core/utils/theme/app_colors.dart';
+import '../../../data/models/breaking_news_model.dart';
+import '../../../../../core/routes/app_routes.dart';
 
 class BreakingCategoryCard extends StatelessWidget {
   const BreakingCategoryCard({

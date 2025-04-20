@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_app/core/themes/app_colors.dart';
-import 'package:news_app/features/home/presentation/widgets/components/news_tile.dart';
-import 'package:news_app/features/home/logic/cubit/news_cubit.dart';
-import 'package:news_app/features/home/presentation/widgets/components/shimmer_category_card.dart';
+import '../../../../../core/utils/theme/app_colors.dart';
+import '../components/news_tile.dart';
+import '../../../logic/cubit/news_cubit.dart';
 import 'package:shimmer/shimmer.dart';
 
 class NewsTileList extends StatelessWidget {
@@ -23,6 +22,8 @@ class NewsTileList extends StatelessWidget {
               );
             }, childCount: state.newsList.length),
           );
+        } else if (state is NewsError) {
+          return Text(state.errorMessage);
         } else {
           return SliverList(
             delegate: SliverChildBuilderDelegate((context, index) {
@@ -31,7 +32,7 @@ class NewsTileList extends StatelessWidget {
                 child: SizedBox(
                   height: 110.h,
                   child: Shimmer.fromColors(
-                    baseColor:AppColors.shimmerGrey,
+                    baseColor: AppColors.shimmerGrey,
                     highlightColor: AppColors.primaryWhite,
                     child: Container(
                       clipBehavior: Clip.antiAlias,
@@ -46,10 +47,6 @@ class NewsTileList extends StatelessWidget {
               );
             }, childCount: 7),
           );
-
-          // SliverToBoxAdapter(
-          //   child: Center(child: CircularProgressIndicator()),
-          // );
         }
       },
     );

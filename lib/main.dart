@@ -4,12 +4,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:news_app/bloc_observer.dart';
-import 'package:news_app/core/dependencies/di_container.dart';
-import 'package:news_app/core/routes/router_generator.dart';
-import 'package:news_app/core/themes/app_colors.dart';
-import 'package:news_app/features/home/logic/provider/bottom_nav_provider.dart';
+import 'package:news_app/core/utils/theme/app_theme_data.dart';
 import 'package:provider/provider.dart';
+
+import 'bloc_observer.dart';
+import 'core/dependencies/di_container.dart';
+import 'core/routes/router_generator.dart';
+import 'core/utils/theme/app_colors.dart';
+import 'features/home/logic/provider/bottom_nav_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,51 +46,7 @@ class Newsaily extends StatelessWidget {
         return MaterialApp.router(
           debugShowCheckedModeBanner: false,
           routerConfig: RouterGenerator.mainRouting,
-          theme: ThemeData(
-            scaffoldBackgroundColor: AppColors.primaryWhite,
-            textTheme: TextTheme(
-              titleLarge: GoogleFonts.notoSansJavanese(
-                color: AppColors.primaryBlack,
-                fontSize: 38.sp,
-                fontWeight: FontWeight.bold,
-              ),
-              titleMedium: GoogleFonts.notoSansJavanese(
-                color: AppColors.primaryBlack,
-                fontSize: 15.sp,
-                fontWeight: FontWeight.w900,
-              ),
-              titleSmall: GoogleFonts.notoSansJavanese(
-                color: AppColors.primaryWhite,
-                fontSize: 18.sp,
-                fontWeight: FontWeight.bold,
-              ),
-              bodyLarge: TextStyle(
-                color: AppColors.primaryBlack,
-                fontSize: 18.sp,
-                fontWeight: FontWeight.bold,
-              ),
-              bodyMedium: TextStyle(
-                color: AppColors.primaryWhite,
-                fontSize: 12.sp,
-              ),
-              bodySmall: TextStyle(color: AppColors.grey, fontSize: 14.sp),
-            ),
-            appBarTheme: AppBarTheme(
-              systemOverlayStyle: SystemUiOverlayStyle(
-                statusBarColor:
-                    Colors.transparent, //controls the status bar color
-                statusBarIconBrightness:
-                    Brightness.dark, //control the status bar icons color
-              ),
-              backgroundColor: Colors.transparent,
-            ),
-
-            bottomAppBarTheme: BottomAppBarTheme(
-              color: AppColors.primaryWhite,
-              shape: CircularNotchedRectangle(),
-              elevation: 20,
-            ),
-          ),
+          theme: AppTheme.lightTheme,
         );
       },
     );

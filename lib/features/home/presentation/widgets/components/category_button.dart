@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_app/core/api/endpoints.dart';
-import 'package:news_app/features/home/logic/cubit/news_cubit.dart';
-import 'package:news_app/features/home/logic/provider/category_provider.dart';
+import '../../../../../core/api/endpoints.dart';
+import '../../../logic/cubit/news_cubit.dart';
+import '../../../logic/provider/category_provider.dart';
 
 class CategoryButton extends StatelessWidget {
   final int index;

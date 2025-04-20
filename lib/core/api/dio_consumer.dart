@@ -1,11 +1,11 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
-import 'package:news_app/core/api/api_consumer.dart';
-import 'package:news_app/core/api/api_interceptor.dart';
-import 'package:news_app/core/api/endpoints.dart';
-import 'package:news_app/core/dependencies/di_container.dart';
-import 'package:news_app/core/errors/exceptions.dart';
+import 'api_consumer.dart';
+import 'api_interceptor.dart';
+import 'endpoints.dart';
+import '../dependencies/di_container.dart';
+import '../errors/exceptions.dart';
 
 class DioConsumer extends ApiConsumer {
   final Dio dio = serviceLocator<Dio>(); //dependency injection
@@ -36,13 +36,13 @@ class DioConsumer extends ApiConsumer {
     bool isFormData = false,
   }) async {
     try {
-      final Response resopnse = await dio.delete(
+      final Response response = await dio.delete(
         path,
         data: isFormData ? FormData.fromMap(data) : data,
         queryParameters: queryParameters,
       );
 
-      return resopnse.data; //json data
+      return response.data; //json data
     } on DioException catch (error) {
       handleDioExceptions(error);
     }
@@ -56,13 +56,13 @@ class DioConsumer extends ApiConsumer {
     Map<String, dynamic>? queryParameters,
   }) async {
     try {
-      final Response resopnse = await dio.get(
+      final Response response = await dio.get(
         path,
         queryParameters: queryParameters,
         data: isFormData ? FormData.fromMap(data) : data,
       );
 
-      return resopnse.data; //json data
+      return response.data; //json data
     } on DioException catch (error) {
       handleDioExceptions(error);
     }
@@ -76,13 +76,13 @@ class DioConsumer extends ApiConsumer {
     bool isFormData = false,
   }) async {
     try {
-      final Response resopnse = await dio.post(
+      final Response response = await dio.post(
         path,
         data: isFormData ? FormData.fromMap(data) : data,
         queryParameters: queryParameters,
       );
 
-      return resopnse.data; //json data
+      return response.data; //json data
     } on DioException catch (error) {
       handleDioExceptions(error);
     }
@@ -96,13 +96,13 @@ class DioConsumer extends ApiConsumer {
     bool isFormData = false,
   }) async {
     try {
-      final Response resopnse = await dio.put(
+      final Response response = await dio.put(
         path,
         data: isFormData ? FormData.fromMap(data) : data,
         queryParameters: queryParameters,
       );
 
-      return resopnse.data; //json data
+      return response.data; //json data
     } on DioException catch (error) {
       handleDioExceptions(error);
     }
@@ -116,13 +116,13 @@ class DioConsumer extends ApiConsumer {
     bool isFormData = false,
   }) async {
     try {
-      final Response resopnse = await dio.patch(
+      final Response response = await dio.patch(
         path,
         data: isFormData ? FormData.fromMap(data) : data,
         queryParameters: queryParameters,
       );
 
-      return resopnse.data; //json data
+      return response.data; //json data
     } on DioException catch (error) {
       handleDioExceptions(error);
     }

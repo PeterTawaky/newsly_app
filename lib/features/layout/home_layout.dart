@@ -1,13 +1,14 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_app/features/home/logic/provider/bottom_nav_provider.dart';
-import 'package:news_app/features/home/presentation/widgets/components/special_circle_icon.dart';
-import 'package:news_app/core/themes/app_colors.dart';
-import 'package:news_app/features/home/presentation/screens/bookmark_screen.dart';
-import 'package:news_app/features/home/presentation/screens/explore_screen.dart';
-import 'package:news_app/features/home/presentation/screens/home_screen.dart';
-import 'package:news_app/features/home/presentation/screens/profile_screen.dart';
+import 'package:news_app/core/utils/functions/bottom_ellipse.dart';
+import '../home/logic/provider/bottom_nav_provider.dart';
+import '../home/presentation/widgets/components/special_circle_icon.dart';
+import '../../core/utils/theme/app_colors.dart';
+import '../home/presentation/screens/bookmark_screen.dart';
+import '../home/presentation/screens/explore_screen.dart';
+import '../home/presentation/screens/home_screen.dart';
+import '../home/presentation/screens/profile_screen.dart';
 import 'package:provider/provider.dart';
 
 class HomeLayout extends StatefulWidget {
@@ -75,10 +76,14 @@ class _HomeLayoutState extends State<HomeLayout> {
 
     return Scaffold(
       key: scaffoldKey, //create this key to open the drawer through it
-      bottomNavigationBar: BottomAppBar(
+      bottomNavigationBar: SizedBox(
+        height: 70.h,
         child: Column(
           children: [
+            SizedBox(height: 10.h),
+
             Row(
+              mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 _buildNavItem(Icons.home, "Home", 0),
@@ -87,6 +92,8 @@ class _HomeLayoutState extends State<HomeLayout> {
                 _buildNavItem(Icons.person_2_outlined, "Profile", 3),
               ],
             ),
+            SizedBox(height: 2.h),
+            bottomEllipse(width: width),
           ],
         ),
       ),
@@ -126,9 +133,13 @@ class _HomeLayoutState extends State<HomeLayout> {
           ),
         ],
       ),
-      body: Consumer(builder: (context, watch, child) {
-        return screens.elementAt(context.watch<BottomNavProvider>().currentIndex);
-      }),
+      body: Consumer(
+        builder: (context, watch, child) {
+          return screens.elementAt(
+            context.watch<BottomNavProvider>().currentIndex,
+          );
+        },
+      ),
     );
   }
 }

@@ -1,12 +1,13 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:news_app/core/api/endpoints.dart';
-import 'package:news_app/core/routes/app_routes.dart';
-import 'package:news_app/features/home/logic/cubit/news_cubit.dart';
-import 'package:news_app/features/layout/home_layout.dart';
-import 'package:news_app/features/home/presentation/screens/news_details_screen.dart';
-import 'package:news_app/features/home/presentation/screens/route_error_screen.dart';
-import 'package:news_app/features/home/presentation/screens/view_all_screens.dart';
+
+import '../../features/home/logic/cubit/news_cubit.dart';
+import '../../features/home/presentation/screens/news_details_screen.dart';
+import '../../features/home/presentation/screens/route_error_screen.dart';
+import '../../features/home/presentation/screens/view_all_screens.dart';
+import '../../features/layout/home_layout.dart';
+import '../api/endpoints.dart';
+import 'app_routes.dart';
 
 class RouterGenerator {
   static GoRouter mainRouting = GoRouter(
@@ -28,7 +29,12 @@ class RouterGenerator {
         path: AppRoutes.viewAllScreen,
         builder: (context, state) {
           return BlocProvider<NewsCubit>(
-            create: (context) => NewsCubit()..getNews(endPoint: Endpoints.everything, q: 'all'),
+            create:
+                (context) =>
+                    NewsCubit()
+                      ..getNews(endPoint: Endpoints.everything, q: 'all',
+                      // forceRefresh: true
+                      ),
             child: ViewAllScreens(),
           );
         },
